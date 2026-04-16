@@ -56,8 +56,7 @@ Due to large size, datasets and trained models are not included in this reposito
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Authors
 
--Shaik Asim
--Mohammad Reeha Jainab
-
+- **Shaik Asim**  
+- **Mohammad Reeha Jainab**
