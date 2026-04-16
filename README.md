@@ -53,3 +53,5 @@ Due to large size, datasets and trained models are not included in this reposito
 ## 👨‍💻 Author
 
 Shaik Asim
+Mohammad Reeha Jainab
+
