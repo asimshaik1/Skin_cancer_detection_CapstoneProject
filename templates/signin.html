@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | SkinCare AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/auth.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="auth-page">
+        <!-- Centered form panel -->
+        <div class="auth-form-panel">
+            <div class="auth-card reveal">
+                <div class="auth-header" style="text-align: center;">
+                    <small><i class="fas fa-shield-alt"></i> &nbsp; Secure Login</small>
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to access your diagnostic dashboard.</p>
+                </div>
+
+                {% if message %}
+                <div style="color: red; text-align: center; margin-bottom: 1rem;" role="alert">
+                    {{ message }}
+                </div>
+                {% endif %}
+
+                <form id="signinForm" action="/signin" method="POST">
+                    <div class="input-group">
+                        <i class="fas fa-user field-icon"></i>
+                        <input type="text" name="user" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock field-icon"></i>
+                        <input type="password" name="password" id="signinPass" placeholder="Password" required>
+                        <i class="fas fa-eye toggle-pass" id="toggleSignin"></i>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-auth">
+                        <i class="fas fa-sign-in-alt"></i> &nbsp; Sign In
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>New here? <a href="/logon">Create an account</a></p>
+                    <div style="margin-top: 1.5rem; border-top: 1px solid var(--clr-border); padding-top: 1.5rem;">
+                        <a href="/" style="color: var(--clr-muted); font-weight: 500;">
+                            <i class="fas fa-arrow-left"></i> &nbsp; Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/js/main.js"></script>
+    <script>
+        const toggleBtn = document.getElementById('toggleSignin');
+        const passInput = document.getElementById('signinPass');
+        toggleBtn.addEventListener('click', () => {
+            const isPass = passInput.type === 'password';
+            passInput.type = isPass ? 'text' : 'password';
+            toggleBtn.classList.toggle('fa-eye');
+            toggleBtn.classList.toggle('fa-eye-slash');
+        });
+    </script>
+</body>
+
+</html>

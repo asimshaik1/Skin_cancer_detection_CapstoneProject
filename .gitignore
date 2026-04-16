@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.h5
+*.pt
+*.ckpt
+.ipynb_checkpoints/
+.env
+.vscode/
+datasets/
+data/
+HAM10000/
+BCN20000/
+Models/

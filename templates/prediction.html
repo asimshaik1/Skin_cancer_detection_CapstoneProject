@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Form - Skin Cancer Detection | AI Healthcare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/prediction.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar">
+        <a href="/home" class="nav-brand"><img src="../static/images/logo.png" style="margin-right: 8px;"
+                alt="Logo">Skin<span class="accent-text">Cancer
+                AI</span></a>
+        <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/prediction" class="active">Prediction</a></li>
+            <li><a href="/graphs">Analytics</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle">Notebook <i class="fas fa-chevron-down"
+                        style="font-size: 0.7rem; margin-left: 4px;"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="../static/BCN 20000 Binary.html">BCN 20000 Binary</a></li>
+                    <li><a href="../static/BCN 20000 Multi.html">BCN 20000 Multi</a></li>
+                    <li><a href="../static/ham10000 Binary.html">HAM10000 Binary</a></li>
+                    <li><a href="../static/ham10000 Multi.html">HAM10000 Multi</a></li>
+                </ul>
+            </li>
+            <li><a class="btn btn-primary" style="padding: 0.55rem 1.3rem;" href="/">Sign Out</a></li>
+        </ul>
+    </nav>
+
+    <!-- ═══ PAGE HERO BREADCRUMB ═══ -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <div class="breadcrumb-nav">
+                <a href="/home"><i class="fas fa-home"></i> Home</a>
+                <span class="sep"><i class="fas fa-chevron-right" style="font-size: 0.65rem;"></i></span>
+                <span>Prediction</span>
+            </div>
+            <h1>Prediction</h1>
+        </div>
+    </section>
+
+    <!-- ═══ PREDICTION SECTION ═══ -->
+    <section class="section">
+        <div class="container">
+            <!-- Centered Header -->
+            <div class="section-header reveal" style="text-align: center; margin-bottom: 3.5rem;">
+                <h2 class="section-title">Skin Cancer <span class="accent-text">Detection Tool</span></h2>
+                <p class="section-subtitle">Upload a dermoscopic image and receive an AI-powered diagnostic probability
+                    in seconds.</p>
+            </div>
+
+            <!-- Stacked Layout (Form Top) -->
+            <div class="prediction-form-card reveal" style="max-width: 850px; margin: 0 auto 5rem;">
+                <div style="text-align: center; margin-bottom: 2.5rem;">
+                    <h3>Submit Image for Analysis</h3>
+                    <p class="sub">Select a model and upload a dermoscopic image for diagnostic analysis.</p>
+                </div>
+
+                <!-- Model Selection Toggle -->
+                <div class="model-selector">
+                    <button type="button" class="model-btn active" data-target="/predict_bcn">
+                        <i class="fas fa-microscope"></i> BCN20000
+                    </button>
+                    <button type="button" class="model-btn" data-target="/predict_ham">
+                        <i class="fas fa-stethoscope"></i> HAM10000
+                    </button>
+                </div>
+
+                <form id="predictionForm" action="/predict_bcn" method="POST" enctype="multipart/form-data">
+                    <div class="upload-zone" id="dropZone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h4>Click or Drag to Upload</h4>
+                        <p>Supports JPG, PNG, WEBP &nbsp;&bull;&nbsp; Max 10MB</p>
+                        <input type="file" name="image" id="fileInput" hidden accept="image/*" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <i class="fas fa-flask"></i> &nbsp; Run Diagnostic Analysis
+                    </button>
+                </form>
+            </div>
+
+            <!-- Methodology (Bottom) -->
+            <div class="info-side reveal"
+                style="margin-top: 4rem; padding-top: 4rem; border-top: 1px solid var(--clr-border);">
+                <div style="text-align: center; margin-bottom: 3.5rem;">
+                    <h3>Our Methodology</h3>
+                    <p class="sub">Utilizing dual datasets and deep residual learning for maximum accuracy.</p>
+                </div>
+
+                <div class="model-metrics" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-network-wired"></i></div>
+                        <div>
+                            <h4>DenseNet121 Model</h4>
+                            <p>State-of-the-art DenseNet architecture for feature reuse and vanishing-gradient
+                                mitigation.</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-database"></i></div>
+                        <div>
+                            <h4>Dual Datasets</h4>
+                            <p>BCN20,000 and HAM10,000 benchmarks providing 30k+ validated clinical samples.</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-check-circle"></i></div>
+                        <div>
+                            <h4>Metric Precision</h4>
+                            <p>Optimized for 94% validation accuracy with focus on sensitivity for malignant detection.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disclaimer-box"
+                    style="max-width: 800px; margin: 3rem auto 0; text-align: center; border-left: none; border: 1px solid var(--clr-warning);">
+                    <strong><i class="fas fa-exclamation-triangle"></i> Clinical Disclaimer</strong><br>
+                    This tool is for preliminary screening only. Always consult a certified dermatologist for any
+                    suspicious skin changes.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer style="padding-top: 20px;">
+        <div class="footer-bottom">
+            <p>&copy; 2026 SkinCancer AI Detection Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const predictionForm = document.getElementById('predictionForm');
+        const modelBtns = document.querySelectorAll('.model-btn');
+
+        // Toggle Model Selection
+        modelBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modelBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                predictionForm.action = btn.dataset.target;
+            });
+        });
+
+        // Dropzone Interaction
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                dropZone.querySelector('h4').textContent = `✓ ${e.target.files[0].name}`;
+                dropZone.style.borderColor = 'var(--clr-safe)';
+                dropZone.style.background = 'rgba(30, 132, 73, 0.04)';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+/* =============================================
+   LANDING PAGE STYLES (index.html)
+   ============================================= */
+
+/* ── About section refinements ── */
+
+/* ── About Grid ── */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.about-img {
+    position: relative;
+}
+
+.about-img img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+}
+
+.about-img .stat-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--clr-primary);
+    color: #fff;
+    padding: 1.2rem 1.5rem;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+.about-img .stat-badge span {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.about-img .stat-badge small {
+    font-size: 0.78rem;
+    opacity: 0.85;
+}
+
+.about-text .lead-text {
+    font-size: 1.08rem;
+    color: var(--clr-muted);
+    margin-bottom: 1.5rem;
+}
+
+.about-text ul {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.about-text ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.8rem;
+    position: relative;
+    color: var(--clr-muted);
+}
+
+.about-text ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--clr-accent);
+}
+
+/* ── Services ── */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.cancer-card {
+    background: var(--clr-surface);
+    border-radius: 18px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--clr-border);
+    transition: all 0.35s ease;
+}
+
+.cancer-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-10px);
+    border-color: var(--clr-accent);
+}
+
+.cancer-card .icon-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    background: rgba(10, 92, 122, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: background 0.3s;
+}
+
+.cancer-card:hover .icon-wrap {
+    background: var(--clr-primary);
+}
+
+.cancer-card .icon-wrap i {
+    font-size: 1.8rem;
+    color: var(--clr-primary);
+    transition: color 0.3s;
+}
+
+.cancer-card:hover .icon-wrap i {
+    color: #fff;
+}
+
+.cancer-card h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.cancer-card p {
+    font-size: 0.92rem;
+    color: var(--clr-muted);
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-img .stat-badge {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .skin-hero {
+        height: 500px;
+    }
+}

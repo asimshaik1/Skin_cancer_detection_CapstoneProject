@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Report - BCN20000 | SkinCare AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/result.css" rel="stylesheet">
+    <!-- PDF Generation Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar">
+        <a href="/home" class="nav-brand"><img src="../static/images/logo.png" style="margin-right: 8px;"
+                alt="Logo">Skin<span class="accent-text">Cancer
+                AI</span></a>
+        <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/prediction">Prediction</a></li>
+            <li><a href="/graphs">Analytics</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle">Notebook <i class="fas fa-chevron-down"
+                        style="font-size: 0.7rem; margin-left: 4px;"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="../static/BCN 20000 Binary.html">BCN 20000 Binary</a></li>
+                    <li><a href="../static/BCN 20000 Multi.html">BCN 20000 Multi</a></li>
+                    <li><a href="../static/ham10000 Binary.html">HAM10000 Binary</a></li>
+                    <li><a href="../static/ham10000 Multi.html">HAM10000 Multi</a></li>
+                </ul>
+            </li>
+            <li><a class="btn btn-primary" style="padding: 0.55rem 1.3rem;" href="/">Sign Out</a></li>
+        </ul>
+    </nav>
+
+    <!-- ═══ PAGE HERO ═══ -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <div class="breadcrumb-nav">
+                <a href="/home"><i class="fas fa-home"></i> Home</a>
+                <span class="sep"><i class="fas fa-chevron-right" style="font-size: 0.65rem;"></i></span>
+                <span>Analysis Results</span>
+            </div>
+            <h1>Clinical Analysis Report (BCN20000)</h1>
+        </div>
+    </section>
+
+    <!-- ═══ RESULT SECTION ═══ -->
+    <section class="section">
+        <div class="container">
+            <div class="result-layout">
+
+                <!-- Main Diagnostic Card -->
+                <div class="result-main-card reveal reveal-delay-1 {% if binary_label == 'Benign' %}benign{% endif %}">
+
+                    <div class="diagnostic-header">
+                        <div
+                            class="status-badge badge-risk {% if binary_label == 'Benign' %}safe{% else %}danger{% endif %}">
+                            <i class="fas fa-microscope"></i> BCN Binary Detected: {% if binary_label == 'Benign'
+                            %}Benign{% else %}Malignant{% endif %}
+                        </div>
+                        <h2 class="result-class">BCN Multi Detected: {{ multi_label|upper }}</h2>
+                        <p class="result-sub">
+                            Analysis generated on <span id="analysisDate" style="font-weight: 600;">--</span>.
+                            The A.I. model has completed its analysis of visual biomarkers within the submitted
+                            dataset pipeline (BCN20000).
+                        </p>
+                    </div>
+
+                    <!-- Gauges -->
+                    <div class="gauges-container">
+                        <div class="gauge-item">
+                            <div class="gauge-label">
+                                <span>Binary Security</span>
+                                <strong>{{ binary_conf }}%</strong>
+                            </div>
+                            <div class="gauge-bar-wrap">
+                                <div class="gauge-fill" id="binBar" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <div class="gauge-item">
+                            <div class="gauge-label">
+                                <span>Classification Confidence</span>
+                                <strong>{{ multi_conf }}%</strong>
+                            </div>
+                            <div class="gauge-bar-wrap">
+                                <div class="gauge-fill" id="multiBar" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diagnostic Visuals (Moved Inside) -->
+                    <div style="margin-top: 1rem;">
+                        <h3
+                            style="font-size: 1.1rem; font-weight: 700; color: var(--clr-primary); display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.5rem;">
+                            <i class="fas fa-microscope"></i> Diagnostic Visual Evidence
+                        </h3>
+                        <div class="comparison-container">
+                            <div class="comparison-grid">
+                                <div class="comp-item">
+                                    <img src="{{ url_for('static', filename='uploads/' + image) }}" alt="Original Scan">
+                                    <span class="comp-label">Original Dermoscopic Scan</span>
+                                </div>
+                                <div class="comp-item">
+                                    <img src="{{ url_for('static', filename='gradcam/' + gradcam) }}"
+                                        alt="Grad-CAM Heatmap">
+                                    <span class="comp-label">Diagnostic Attention Heatmap (Grad-CAM)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clinical Advice System -->
+                    <div class="advice-section">
+
+                        <!-- ═══ BINARY ANALYSIS ADVICE ═══ -->
+                        <div class="advice-group">
+                            <h4 class="advice-group-title"><i class="fas fa-dna"></i> 1. Binary Analysis Findings</h4>
+                            <div class="advice-row">
+                                <div class="advice-card advice-recommendation">
+                                    <h3><i class="fas fa-stethoscope"></i> Recommendations</h3>
+                                    <ul class="advice-list">
+                                        {% if binary_label == 'Malignant' %}
+                                        <li style="color: var(--clr-alert); font-weight: 700;">Immediate dermatological
+                                            consultation for surgical evaluation.</li>
+                                        <li>Schedule high-resolution dermoscopic mapping of the lesion site.</li>
+                                        <li>Establish a baseline biopsy for histopathological verification.</li>
+                                        {% else %}
+                                        <li>Maintain regular self-examination using the ABCDE protocol.</li>
+                                        <li>Schedule an annual professional skin check-up for monitoring.</li>
+                                        <li>Document the lesion with standardized photography every 3 months.</li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                                <div class="advice-card advice-precaution">
+                                    <h3><i class="fas fa-exclamation-triangle"></i> Precautions</h3>
+                                    <ul class="advice-list">
+                                        <li><strong>UV Coverage:</strong> Use protective clothing and wide-brimmed hats.
+                                        </li>
+                                        <li><strong>SPF Protocol:</strong> Apply broad-spectrum SPF 50+ every 90
+                                            minutes.</li>
+                                        <li><strong>No Manipulation:</strong> Avoid any mechanical irritation or
+                                            picking.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ═══ MULTI-CLASS ANALYSIS ADVICE ═══ -->
+                        <div class="advice-group">
+                            <h4 class="advice-group-title"><i class="fas fa-microscope"></i> 2. Specific Classification
+                                Findings</h4>
+                            <div class="advice-row">
+                                <div class="advice-card advice-recommendation">
+                                    <h3><i class="fas fa-stethoscope"></i> Recommendations</h3>
+                                    <ul class="advice-list">
+                                        {% if multi_label == 'melanoma' or multi_label == 'melanoma_metastasis' %}
+                                        <li style="color: var(--clr-alert);">Prioritize oncologist consultation and
+                                            sentinel lymph node biopsy.</li>
+                                        <li>Consult with an oncology specialist for staging analysis.</li>
+                                        {% elif multi_label == 'basal_cell_carcinoma' or multi_label ==
+                                        'squamous_cell_carcinoma' %}
+                                        <li>Prepare for Mohs surgery or surgical excision as advised.</li>
+                                        <li>Evaluate for potential local spread or recurrences.</li>
+                                        {% elif multi_label == 'actinic_keratosis' or multi_label ==
+                                        'seborrheic_keratosis' %}
+                                        <li>Consider cryotherapy or topical removals for lesion elimination.</li>
+                                        {% elif multi_label in ['nevus', 'dermatofibroma', 'solar_lentigo', 'scar',
+                                        'other'] %}
+                                        <li>No immediate clinical intervention required; continue monitoring.</li>
+                                        <li>Surgical intervention is strictly elective (cosmetic).</li>
+                                        {% else %}
+                                        <li>Follow standard diagnostic follow-up for findings.</li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                                <div class="advice-card advice-precaution">
+                                    <h3><i class="fas fa-exclamation-triangle"></i> Precautions</h3>
+                                    <ul class="advice-list">
+                                        {% if multi_label in ['melanoma', 'melanoma_metastasis', 'basal_cell_carcinoma',
+                                        'squamous_cell_carcinoma'] %}
+                                        <li style="color: var(--clr-alert);">Complete avoidance of tanning beds and
+                                            artificial UV.</li>
+                                        <li>Advise blood relatives to undergo professional screening.</li>
+                                        {% else %}
+                                        <li>Avoid irritation from clothing or tight-fitting accessories.</li>
+                                        <li>Note any itching, bleeding, or weeping of the lesion.</li>
+                                        {% endif %}
+                                        <li>Regularly hydrate the skin around the analyzed area.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <p class="report-disclaimer"
+                        style="margin-top: 2rem; font-size: 0.8rem; color: var(--clr-muted); line-height: 1.5;">
+                        <i class="fas fa-info-circle"></i> <strong>Disclaimer:</strong> This automated screening result
+                        is intended as a clinical decision support tool and does not constitute a definitive medical
+                        diagnosis. For histological confirmation, please consult a specialized dermatologist.
+                    </p>
+                </div>
+
+                <!-- Final Actions -->
+                <div class="result-actions" style="margin-top: 1rem;">
+                    <a href="/prediction" class="btn btn-outline btn-report">
+                        <i class="fas fa-redo"></i> New Analysis
+                    </a>
+                    <button class="btn btn-primary btn-report" onclick="generatePDF('BCN20000', event)">
+                        <i class="fas fa-file-pdf"></i> Generate Official Report
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer style="padding: 2rem 0; background: var(--clr-bg); border-top: 1px solid var(--clr-border);">
+        <div class="container" style="text-align: center;">
+            <p style="font-size: 0.85rem; color: var(--clr-muted);">&copy; <span id="reportYear">2026</span> SkinCare AI
+                Medical Analytics Research.
+                Report Date: <span id="reportDate">--</span>. (BCN Dataset).</p>
+        </div>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/report.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('binBar').style.width = '{{ binary_conf }}%';
+                document.getElementById('multiBar').style.width = '{{ multi_conf }}%';
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>

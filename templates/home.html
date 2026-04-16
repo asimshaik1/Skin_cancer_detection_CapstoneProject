@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Skin Cancer Detection | AI Healthcare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/home.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar">
+        <a href="/home" class="nav-brand"><img src="../static/images/logo.png" style="margin-right: 8px;"
+                alt="Logo">Skin<span class="accent-text">Cancer
+                AI</span></a>
+        <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="/home" class="active">Home</a></li>
+            <li><a href="/prediction">Prediction</a></li>
+            <li><a href="/graphs">Analytics</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle">Notebook <i class="fas fa-chevron-down"
+                        style="font-size: 0.7rem; margin-left: 4px;"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="../static/BCN 20000 Binary.html">BCN 20000 Binary</a></li>
+                    <li><a href="../static/BCN 20000 Multi.html">BCN 20000 Multi</a></li>
+                    <li><a href="../static/ham10000 Binary.html">HAM10000 Binary</a></li>
+                    <li><a href="../static/ham10000 Multi.html">HAM10000 Multi</a></li>
+                </ul>
+            </li>
+            <li><a class="btn btn-primary" style="padding: 0.55rem 1.3rem;" href="/">Sign Out</a></li>
+        </ul>
+    </nav>
+
+    <!-- ═══ HERO CAROUSEL ═══ -->
+    <header class="skin-hero" id="hero-carousel">
+        <div class="carousel-slide active" style="background-image: url('../static/images/slider-bg-2.jpg');">
+            <div class="carousel-body">
+                <div class="tag"><i class="fas fa-dna"></i> &nbsp; AI in Healthcare</div>
+                <h1>Revolutionizing <br>Dermatological Diagnosis</h1>
+                <p>Advanced deep learning models assist clinicians in detecting skin cancer with clinical-grade
+                    accuracy.</p>
+                <a href="/prediction" class="btn btn-accent">Start Detection &nbsp;<i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="carousel-slide" style="background-image: url('../static/images/slider-bg-1.jpg');">
+            <div class="carousel-body">
+                <div class="tag"><i class="fas fa-search"></i> &nbsp; Early Detection</div>
+                <h1>Early Detection <br>Saves Lives</h1>
+                <p>95% survival rate when skin cancer is identified and treated in its earliest stages.</p>
+                <a href="/home" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+        <div class="carousel-slide" style="background-image: url('../static/images/slider-bg-3.jpg');">
+            <div class="carousel-body">
+                <div class="tag"><i class="fas fa-brain"></i> &nbsp; Deep Learning</div>
+                <h1>CNN-Powered <br>Skin Lesion Analysis</h1>
+                <p>State-of-the-art convolutional neural networks trained on 30,000+ validated dermoscopic images.</p>
+                <a href="/graphs" class="btn btn-accent">View Analytics</a>
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </header>
+
+    <!-- ═══ CONTENT ═══ -->
+    <section class="section">
+        <div class="container">
+
+            <!-- Section 1: Why Early Detection -->
+            <div class="split-section reveal">
+                <div class="image-content">
+                    <img src="../static/images/about-1.jpg" alt="Health Monitoring">
+                </div>
+                <div class="text-content">
+                    <h2><i class="fas fa-heartbeat"></i> Proactive Health</h2>
+                    <p>Skin cancer is the most common cancer worldwide, but it is also highly treatable when caught in
+                        its primary stages. Early identification is the key to minimizing invasive procedures and
+                        maximizing clinical outcomes.</p>
+                    <p>Our platform empowers you to monitor your skin health with professional-grade analysis, acting as
+                        a vital bridge between self-examination and professional dermatological consultation.</p>
+                    <p>Don't wait for symptoms to progress — early detection today ensures a healthier tomorrow.</p>
+                </div>
+            </div>
+
+            <!-- Section 2: How DL Helps -->
+            <div class="split-section reverse reveal">
+                <div class="image-content">
+                    <img src="../static/images/about-2.jpg" alt="AI Neural Networks">
+                </div>
+                <div class="text-content">
+                    <h2><i class="fas fa-brain"></i> Neural Precision</h2>
+                    <p>Manual dermatological diagnosis relies heavily on visual pattern recognition. By leveraging
+                        Convolutional Neural Networks (CNNs), we can analyze thousands of pixel-level features that may
+                        be subtle to the naked eye.</p>
+                    <p>Our models are trained on curated datasets of over 30,000 clinically validated images, allowing
+                        the AI to distinguish between benign lesions and malignant conditions with high statistical
+                        confidence.</p>
+                    <p>This computational approach provides a secondary layer of diagnostic support, ensuring that
+                        screening is faster, more accessible, and more accurate than ever before.</p>
+                </div>
+            </div>
+
+            <!-- Section 3: The Process -->
+            <div class="steps-container reveal">
+                <div class="steps-header">
+                    <h3>Our Diagnostic Pipeline</h3>
+                </div>
+                <div class="detection-steps">
+                    <div class="step-card">
+                        <i class="fas fa-camera"></i>
+                        <h4>Capture</h4>
+                        <p>High-resolution imaging of the lesion</p>
+                    </div>
+                    <div class="step-card">
+                        <i class="fas fa-microchip"></i>
+                        <h4>Process</h4>
+                        <p>Image normalization and feature extraction</p>
+                    </div>
+                    <div class="step-card">
+                        <i class="fas fa-vial"></i>
+                        <h4>Analyze</h4>
+                        <p>Deep learning classification logic</p>
+                    </div>
+                    <div class="step-card">
+                        <i class="fas fa-file-medical-alt"></i>
+                        <h4>Report</h4>
+                        <p>Detailed results and clinical guidance</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer style="padding-top: 20px;">
+        <div class="footer-bottom">
+            <p>&copy; 2026 SkinCancer AI Detection Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

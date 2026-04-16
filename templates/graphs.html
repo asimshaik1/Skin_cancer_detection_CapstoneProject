@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphs - Skin Cancer Detection | AI Healthcare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/analytics.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar">
+        <a href="/home" class="nav-brand"><img src="../static/images/logo.png" style="margin-right: 8px;"
+                alt="Logo">Skin<span class="accent-text">Cancer
+                AI</span></a>
+        <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/prediction">Prediction</a></li>
+            <li><a href="/graphs" class="active">Analytics</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle">Notebook <i class="fas fa-chevron-down"
+                        style="font-size: 0.7rem; margin-left: 4px;"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="../static/BCN 20000 Binary.html">BCN 20000 Binary</a></li>
+                    <li><a href="../static/BCN 20000 Multi.html">BCN 20000 Multi</a></li>
+                    <li><a href="../static/ham10000 Binary.html">HAM10000 Binary</a></li>
+                    <li><a href="../static/ham10000 Multi.html">HAM10000 Multi</a></li>
+                </ul>
+            </li>
+            <li><a class="btn btn-primary" style="padding: 0.55rem 1.3rem;" href="/">Sign Out</a></li>
+        </ul>
+    </nav>
+
+    <!-- ═══ PAGE HERO BREADCRUMB ═══ -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <div class="breadcrumb-nav">
+                <a href="/home"><i class="fas fa-home"></i> Home</a>
+                <span class="sep"><i class="fas fa-chevron-right" style="font-size: 0.65rem;"></i></span>
+                <span>Analytics</span>
+            </div>
+            <h1>Data Analytics</h1>
+        </div>
+    </section>
+
+
+    <!-- ═══ ANALYTICS TABS ═══ -->
+    <section class="section">
+        <div class="container" style="max-width: 1200px;">
+            <div class="section-header reveal" style="text-align: center; margin-bottom: 3rem;">
+                <h2 class="section-title">Model Performance <span class="accent-text">&amp; Analytics</span></h2>
+                <p class="section-subtitle">Comprehensive evaluation of our CNN architectures across primary medical
+                    datasets.</p>
+            </div>
+
+            <!-- Main Dataset Selection -->
+            <div class="analytics-tabs reveal">
+                <button class="tab-btn active" data-dataset="bcn">BCN20000 Dataset</button>
+                <button class="tab-btn" data-dataset="ham">HAM10000 Dataset</button>
+            </div>
+
+            <!-- BCN20000 DATASET AREA -->
+            <div id="bcn-area" class="graphs-container active">
+                <div class="sub-tabs">
+                    <button class="sub-tab-btn active" data-type="binary">Binary Classification</button>
+                    <button class="sub-tab-btn" data-type="multi">Multi-class Classification</button>
+                </div>
+
+                <!-- BCN Binary -->
+                <div id="bcn-binary" class="sub-content active">
+                    <div class="stacked-layout">
+                        <div class="metric-panel">
+                            <h3 class="panel-title"><i class="fas fa-th"></i> Confusion Matrix & ROC Curve</h3>
+                            <div class="panel-visuals">
+                                <div class="visual-item">
+                                    <img src="../static/graphs/BCN/binary/download.png"
+                                        alt="BCN Binary Confusion Matrix">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metric-panel">
+                            <h3 class="panel-title"><i class="fas fa-chart-line"></i> Training Accuracy & Training Loss
+                            </h3>
+                            <div class="panel-visuals">
+                                <div class="visual-item">
+                                    <img src="../static/graphs/BCN/binary/download (1).png" alt="BCN Binary Metrics">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metric-panel">
+                            <h3 class="panel-title"><i class="fas fa-balance-scale"></i> Model Performance Comparison
+                            </h3>
+                            <div class="panel-visuals">
+                                <div class="visual-item">
+                                    <img src="../static/graphs/BCN/binary/download (2).png" alt="BCN Binary Comparison">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BCN Multi -->
+                <div id="bcn-multi" class="sub-content">
+                    <div class="stacked-layout">
+                        <div class="metric-panel">
+                            <h3 class="panel-title"><i class="fas fa-th"></i> Confusion Matrix & ROC Curve</h3>
+                            <div class="panel-visuals">
+                                <div class="visual-item">
+                                    <img src="../static/graphs/BCN/multi/download.png" alt="BCN Multi Confusion Matrix">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metric-panel">
+                            <h3 class="panel-title"><i class="fas fa-chart-line"></i> Training Accuracy & Training Loss
+                            </h3>
+                            <div class="panel-visuals">
+                                <div class="visual-item">
+                                    <img src="../static/graphs/BCN/multi/download (1).png" alt="BCN Multi Metrics">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metric-panel">
+                            <h3 class="panel-title"><i class="fas fa-balance-scale"></i> Model Performance Comparison
+                            </h3>
+                            <div class="panel-visuals">
+                                <div class="visual-item">
+                                    <img src="../static/graphs/BCN/multi/download (2).png" alt="BCN Multi Comparison">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HAM10000 DATASET AREA -->
+            <div id="ham-area" class="graphs-container">
+                <div class="sub-tabs">
+                    <button class="sub-tab-btn active" data-type="binary">Binary Classification</button>
+                    <button class="sub-tab-btn" data-type="multi">Multi-class Classification</button>
+                </div>
+
+                <!-- HAM Binary -->
+                <div id="ham-binary" class="sub-content active">
+                    <div class="stacked-layout">
+                        <div class="metric-panel">
+                            <h3 class="panel-title"><i class="fas fa-th"></i> Confusion Matrix & ROC Curve</h3>
+                            <div class="panel-visuals">
+                                <div class="visual-item">
+                                    <img src="../static/graphs/HAM/binary/download.png"
+                                        alt="HAM Binary Confusion Matrix">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metric-panel">
+                            <h3 class="panel-title"><i class="fas fa-chart-line"></i> Training Accuracy & Training Loss
+                            </h3>
+                            <div class="panel-visuals">
+                                <div class="visual-item">
+                                    <img src="../static/graphs/HAM/binary/download (1).png" alt="HAM Binary Metrics">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metric-panel">
+                            <h3 class="panel-title"><i class="fas fa-balance-scale"></i> Model Performance Comparison
+                            </h3>
+                            <div class="panel-visuals">
+                                <div class="visual-item">
+                                    <img src="../static/graphs/HAM/binary/download (2).png" alt="HAM Binary Comparison">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HAM Multi -->
+                <div id="ham-multi" class="sub-content">
+                    <div class="stacked-layout">
+                        <div class="metric-panel">
+                            <h3 class="panel-title"><i class="fas fa-th"></i> Confusion Matrix & ROC Curve</h3>
+                            <div class="panel-visuals">
+                                <div class="visual-item">
+                                    <img src="../static/graphs/HAM/multi/download.png" alt="HAM Multi Confusion Matrix">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metric-panel">
+                            <h3 class="panel-title"><i class="fas fa-chart-line"></i> Training Accuracy & Training Loss
+                            </h3>
+                            <div class="panel-visuals">
+                                <div class="visual-item">
+                                    <img src="../static/graphs/HAM/multi/download (1).png" alt="HAM Multi Metrics">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metric-panel">
+                            <h3 class="panel-title"><i class="fas fa-balance-scale"></i> Model Performance Comparison
+                            </h3>
+                            <div class="panel-visuals">
+                                <div class="visual-item">
+                                    <img src="../static/graphs/HAM/multi/download (2).png" alt="HAM Multi Comparison">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ IMAGE MODAL ═══ -->
+    <div id="imageModal" class="img-modal">
+        <div class="modal-inner">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <img id="modalImg" src="" alt="Graph Preview">
+            <div class="modal-arrow prev" id="prevBtn"><i class="fas fa-chevron-left"></i></div>
+            <div class="modal-arrow next" id="nextBtn"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </div>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer style="padding-top: 20px;">
+        <div class="footer-bottom">
+            <p>&copy; 2026 SkinCancer AI Detection Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/graphs.js"></script>
+</body>
+
+</html>

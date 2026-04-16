@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Skin Cancer Detection | AI Healthcare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/index.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar">
+        <a href="/" class="nav-brand"><img src="../static/images/logo.png" style="margin-right: 8px;"
+                alt="Logo">Skin<span class="accent-text">Cancer
+                AI</span></a>
+        <div class="nav-toggle"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/login">Sign In</a></li>
+            <li><a href="/logon">Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <!-- ═══ HERO CAROUSEL ═══ -->
+    <header class="skin-hero" id="hero-carousel">
+        <div class="carousel-slide active" style="background-image: url('../static/images/slider-bg-2.jpg');">
+            <div class="carousel-body">
+                <div class="tag"><i class="fas fa-dna"></i> &nbsp; AI in Healthcare</div>
+                <h1>Revolutionizing <br>Dermatological Diagnosis</h1>
+                <p>Advanced deep learning models assist clinicians in detecting skin cancer with clinical-grade
+                    accuracy.</p>
+                <a href="/login" class="btn btn-accent">Get Started &nbsp;<i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="carousel-slide" style="background-image: url('../static/images/slider-bg-1.jpg');">
+            <div class="carousel-body">
+                <div class="tag"><i class="fas fa-search"></i> &nbsp; Early Detection</div>
+                <h1>Early Detection <br>Saves Lives</h1>
+                <p>95% survival rate when skin cancer is identified and treated in its earliest stages.</p>
+                <a href="/login" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+        <div class="carousel-slide" style="background-image: url('../static/images/slider-bg-3.jpg');">
+            <div class="carousel-body">
+                <div class="tag"><i class="fas fa-brain"></i> &nbsp; Deep Learning</div>
+                <h1>CNN-Powered <br>Skin Lesion Analysis</h1>
+                <p>State-of-the-art convolutional neural networks trained on 30,000+ validated dermoscopic images.</p>
+                <a href="/login" class="btn btn-accent">Explore Models</a>
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </header>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img reveal">
+                    <img src="../static/images/about.jpg" alt="Medical Technology">
+                </div>
+                <div class="about-text reveal reveal-delay-2">
+                    <p class="badge badge-info" style="margin-bottom: 1rem;"><i class="fas fa-flask"></i> &nbsp;About
+                        the Project</p>
+                    <h2 class="section-title" style="text-align: left; padding-bottom: 1rem; margin-bottom: 1.5rem;">
+                        DL-Skin-Detect: <br>Advanced A.I. Screening</h2>
+                    <p class="lead-text">Our advanced platform utilizes deep learning architectures to provide a
+                        sophisticated approach for early skin cancer detection, ensuring that potentially harmful
+                        lesions are identified with high diagnostic precision and medical reliability.</p>
+                    <p class="lead-text" style="font-size: 1rem; margin-top: 1rem;">By leveraging state-of-the-art
+                        convolutional neural networks trained on extensive dermatological datasets, the system analyzes
+                        complex visual patterns to distinguish between benign and malignant skin conditions accurately
+                        and efficiently.</p>
+                    <p class="lead-text" style="font-size: 1rem; margin-top: 1rem;">This innovative computational
+                        methodology empowers both patients and clinicians by offering a non-invasive screening tool that
+                        facilitates timely medical intervention, ultimately bridging the gap between artificial
+                        intelligence and dermatology.</p>
+                    <a href="/login" class="btn btn-primary">Try the Model</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SERVICES ═══ -->
+    <section class="section-alt" id="services">
+        <div class="container">
+            <h2 class="section-title">Core <span class="accent-text">Services</span></h2>
+            <p class="section-subtitle">A complete clinical AI pipeline from image submission to actionable diagnostic
+                results.</p>
+            <div class="services-grid">
+                <div class="cancer-card reveal">
+                    <div class="icon-wrap"><i class="fas fa-microscope"></i></div>
+                    <h3>Image Classification</h3>
+                    <p>Automated classification of dermoscopic images into benign and malignant
+                        categories.</p>
+                </div>
+                <div class="cancer-card reveal reveal-delay-1">
+                    <div class="icon-wrap"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Model Evaluation</h3>
+                    <p>Comprehensive performance metrics including accuracy, precision, recall, and F1-score dashboards.
+                    </p>
+                </div>
+                <div class="cancer-card reveal reveal-delay-2">
+                    <div class="icon-wrap"><i class="fas fa-bolt"></i></div>
+                    <h3>Automated Prediction</h3>
+                    <p>Instant analysis results with confidence scoring, enabling rapid clinical screening decisions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer style="padding-top: 20px;">
+        <div class="footer-bottom">
+            <p>&copy; 2026 SkinCancer AI Detection Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>

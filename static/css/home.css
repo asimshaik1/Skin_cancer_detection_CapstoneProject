@@ -1,0 +1,144 @@
+/* =============================================
+   HOME PAGE STYLES (home.html)
+   ============================================= */
+
+/* ── Split Section Layout ── */
+.split-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+.split-section.reverse {
+    grid-template-columns: 1fr 1fr;
+    direction: rtl;
+}
+
+.split-section.reverse .text-content {
+    direction: ltr;
+}
+
+.image-content img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+}
+
+.text-content h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--clr-primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.text-content h2 i {
+    color: var(--clr-accent);
+}
+
+.text-content p {
+    color: var(--clr-muted);
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+}
+
+/* ── Steps Section ── */
+.steps-container {
+    background: var(--clr-surface);
+    border-radius: 24px;
+    padding: 4rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--clr-border);
+    margin-top: 4rem;
+}
+
+.steps-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.steps-header h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--clr-primary);
+}
+
+.detection-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.step-card {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: var(--clr-bg);
+    border-radius: 20px;
+    border: 1px solid var(--clr-border);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.step-card:hover {
+    background: var(--clr-primary);
+    color: #fff;
+    transform: translateY(-10px);
+    border-color: var(--clr-primary);
+}
+
+.step-card i {
+    font-size: 2.5rem;
+    color: var(--clr-accent);
+    margin-bottom: 1.5rem;
+    display: block;
+    transition: color 0.3s;
+}
+
+.step-card:hover i {
+    color: #fff;
+}
+
+.step-card h4 {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.step-card p {
+    font-size: 0.9rem;
+    color: var(--clr-muted);
+    line-height: 1.6;
+    transition: color 0.3s;
+}
+
+.step-card:hover p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 992px) {
+
+    .split-section,
+    .split-section.reverse {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .detection-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .detection-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .steps-container {
+        padding: 2rem;
+    }
+}
