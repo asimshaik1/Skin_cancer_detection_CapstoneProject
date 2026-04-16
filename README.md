@@ -38,8 +38,14 @@ Due to large size, datasets and trained models are not included in this reposito
 
 ## 📸 Screenshots
 
-(Add your UI screenshots here)
+### 🏠 Home Page
+![Home](images/home.png)
 
+### 🔍 Prediction Page
+![Prediction](images/predict.png)
+
+### 📊 Result Output
+![Result](images/result.png)
 ---
 
 ## 💡 Future Work
@@ -52,6 +58,6 @@ Due to large size, datasets and trained models are not included in this reposito
 
 ## 👨‍💻 Author
 
-Shaik Asim
-Mohammad Reeha Jainab
+-Shaik Asim
+-Mohammad Reeha Jainab
 
